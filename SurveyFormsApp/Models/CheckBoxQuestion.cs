@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SurveyFormsApp.Models
 {
-    public class CheckBoxQuestion : ChoicableQuestion, IMultipleAnswer<Option>
+    public class CheckBoxQuestion : ChoicableQuestion, IAnswer<Option>
     {
 
 
@@ -69,14 +69,22 @@ namespace SurveyFormsApp.Models
         /// </summary>
         /// <param name="option"></param>
         public override void AddOption(Option option)
-        {
-            if (Options.Count < 5)
+        {        
+            var isSame = Options.Any(x => x.Name == option.Name);
+            if (!isSame)
             {
-                options.Add(option);
+                if (Options.Count < 4)
+                {
+                    options.Add(option);
+                }
+                else
+                {
+                    throw new Exception("Çoktan seçmeli soru tipinde sadece 4 adet seçenek bulunabilir.");
+                }
             }
             else
             {
-                throw new Exception("Bu soru tipi için Hiçbiri dahil 5 seçenek eklenebilir.");
+                throw new Exception("Daha önce aynı seçeneği yolladınız.");
             }
         }
     }

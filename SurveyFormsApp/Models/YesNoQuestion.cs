@@ -11,10 +11,10 @@ namespace SurveyFormsApp.Models
     public class YesNoQuestion : InputQuestion, IAnswer<bool>
     {
         public YesNoQuestion(string name) : base(name, Abstract.QuestionType.YesNo)
-        { 
+        {
         }
 
-        public bool Answer { get; set; }
+        public bool Answer { get; set; } = false;
 
         public void AddAnswer(bool answer)
         {

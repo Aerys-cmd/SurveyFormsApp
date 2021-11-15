@@ -15,6 +15,8 @@ namespace SurveyFormsApp.Models
         }
 
         public DateTime Answer { get; set; }
+
+        //Kullanıcı için
         public void AddAnswer(DateTime answer)
         {
             if (answer != default(DateTime))

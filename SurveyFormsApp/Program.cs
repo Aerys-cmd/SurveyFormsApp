@@ -12,6 +12,7 @@ namespace SurveyFormsApp
 
         static void Main(string[] args)
         {
+
             Survey survey = new Survey(name: "Genel Değerlendirme Formu - (GDF)", numberOfQuestions: 10, DateTime.Now.AddDays(5));
 
             //Soru 1 
